@@ -39,7 +39,12 @@ class Blockchain(object):
         return True
 
     def get_data(self, sender, receiver, amount):
-        pass
+        self.current_data.append({
+            'sender': sender,
+            'receiver': receiver,
+            'amount': amount
+        })
+        return True
 
     @staticmethod
     def proof_of_work(last_proof):
