@@ -33,7 +33,7 @@ class Blockchain(object):
             return False
         elif prev_block.compute_hash() != block.prev_hash:
             return False
-        elif block.timestamp & lt; = prev_block.timestamp:
+        elif block.timestamp >= prev_block.timestamp:
             return False
         
         return True
@@ -46,10 +46,10 @@ class Blockchain(object):
         })
         return True
 
-    @staticmethod
     """
     In blockchaon Proof of Work(PoW) reders to the complexity involved in mining or generating new blocks on the blockchain
     """
+    @staticmethod
     def proof_of_work(last_proof):
         pass
     
