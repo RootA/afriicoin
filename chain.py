@@ -47,9 +47,26 @@ class Blockchain(object):
         return True
 
     @staticmethod
+    """
+    In blockchaon Proof of Work(PoW) reders to the complexity involved in mining or generating new blocks on the blockchain
+    """
     def proof_of_work(last_proof):
         pass
+    
+    def block_mining(self, details_miner):
+        self.get_data(
+            sender="0",
+            receiver=details_miner,
+            amount=1
+        )
+        last_block = self.latest_block
+        last_proof_number = last_block.proof_number
+        proof_number = self.proof_of_work(last_proof_number)
+        last_hash = last_block.compute_hash
+
+        block = self.build_block(proof_number, last_hash)
+        return vars(block)
 
     @property
     def latest_block(self):
-        pass
+        return self.chain[-1]
